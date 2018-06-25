@@ -10,33 +10,39 @@
       </ul>
     </div>
   <% end %>
+<form>
+  <div class="form-group">
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="field">
+      <%= form.label :genre %>
+      <%= form.text_field :genre %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image_url %>
+      <%= form.text_field :image_url %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price %>
+    </div>
+
+    <div class="field">
+      <%= form.label :duration %>
+      <%= form.text_field :duration %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :genre %>
-    <%= form.text_field :genre %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.text_field :duration %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
+</form>
+
+
+
+
 <% end %>

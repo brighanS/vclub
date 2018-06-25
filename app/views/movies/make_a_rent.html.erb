@@ -1,3 +1,24 @@
-<p>place an order here!!!</p>
-
-<%= render 'display'%>
+<h1 class="display-1">Select your movies</h1>
+<table>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Movie</th>
+      <th socpe="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr scope="row">
+        <td>
+            <%= movie.name %>
+            <img src="<%= movie.image_url %>" class="img-fluid" alt="Responsive image">
+            <%= movie.price %>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-primary">Add to Cart</button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', movies_path %>

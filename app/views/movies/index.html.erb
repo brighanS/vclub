@@ -22,7 +22,7 @@
         <td><img src="<%= movie.image_url %>" class="img-fluid" alt="Responsive image"> </td>
         <td><%= movie.price %></td>
         <td><%= movie.duration %></td>
-        <td><button type="button" class="btn btn-outline-primary"><%= link_to 'Show', movie %></button>
+        <td><button type="button" class="btn btn-outline-primary"><%= link_to 'Details', movie %></button>
             <button type="button" class="btn btn-outline-secondary"><%= link_to 'Edit', edit_movie_path(movie) %></button>
             <button type="button" class="btn btn-outline-danger"><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></button>
         </td>
@@ -34,3 +34,4 @@
 <br>
 
 <button type="button" class="btn btn-outline-primary"><%= link_to 'New Movie', new_movie_path %></button>
+<button type="button" class="btn btn-outline-primary"><%= link_to 'Rent a Movie', :controller => "movies", :action => "make_a_rent" %></button>

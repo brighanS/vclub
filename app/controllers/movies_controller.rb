@@ -64,6 +64,10 @@ class MoviesController < ApplicationController
     end
   end
 
+  def make_a_rent
+    @movies = Movie.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
@@ -75,6 +79,5 @@ class MoviesController < ApplicationController
       params.require(:movie).permit(:name, :genre, :image_url, :price, :duration)
     end
 
-    def make_a_rent
-    end
+
 end
