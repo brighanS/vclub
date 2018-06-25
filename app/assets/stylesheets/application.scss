@@ -12,3 +12,15 @@
  *
  */
 @import "bootstrap";
+
+img{
+  height: 200px;
+  width: 200px;
+}
+a:link{
+  outline-color: none !important;
+  text-decoration: none;
+}
+button{
+  color: black;
+}
