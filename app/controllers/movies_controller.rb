@@ -71,4 +71,7 @@ class MoviesController < ApplicationController
     def movie_params
       params.require(:movie).permit(:name, :genre, :image_url, :price, :duration)
     end
+
+    def make_a_rent
+    end
 end
