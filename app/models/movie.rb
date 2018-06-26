@@ -1,5 +1,8 @@
 class Movie < ApplicationRecord
 
+  has_many :line_items
+
+
   validates :name, :genre, :image_url, :price, :duration, presence: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
   validates :name, uniqueness: true

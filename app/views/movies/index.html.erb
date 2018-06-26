@@ -31,7 +31,7 @@
         <td><%= movie.name %></td>
         <!-- <td><%= movie.genre %></td> -->
         <td><img src="<%= movie.image_url %>" class="img-fluid align-center" alt="Responsive image"> </td>
-        <td><%= movie.price %></td>
+        <td><%= number_to_currency(movie.price) %></td>
         <!-- <td><%= movie.duration %></td> -->
         <td><button type="button" class="btn btn-outline-primary"><%= link_to 'Details', movie %></button>
             <button type="button" class="btn btn-outline-secondary"><%= link_to 'Edit', edit_movie_path(movie) %></button>

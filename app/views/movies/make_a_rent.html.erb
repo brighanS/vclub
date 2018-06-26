@@ -15,7 +15,7 @@
             <%= movie.price %>
         </td>
         <td>
-          <button type="button" class="btn btn-outline-primary">Add to Cart</button>
+          <button type="button" class="btn btn-outline-primary"><%= button_to 'Add Cart', line_items_path(movie_id: movie)%></button>
         </td>
       </tr>
     <% end %>
