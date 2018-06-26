@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.1'
-
+#Devise
+gem 'devise', git: 'https://github.com/plataformatec/devise'
 #Bootstrap v4
 gem 'bootstrap', '~> 4.1.1'
 #jQuery for bootstrap
