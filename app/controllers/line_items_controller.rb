@@ -27,7 +27,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     movie = Movie.find(params[:movie_id])
-    @line_item = @cart.line_items.build(movie: movie)
+    @line_item = @cart.add_movie(movie)
 
     respond_to do |format|
       if @line_item.save
@@ -72,6 +72,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:movie_id, :cart_id)
+      params.require(:line_item).permit(:movie_id, :cart_id, :quantity)
     end
 end
