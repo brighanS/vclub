@@ -1,10 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% @cart.line_items.each do |item| %>
-  <li><%= item.quantity %>&times<%= item.movie.name %></li>
-<% end %>
-
-
+<%= render @cart %>
 
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>

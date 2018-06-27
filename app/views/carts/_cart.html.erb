@@ -1,0 +1,7 @@
+<h1 class="h4">Your cart:</h1>
+
+<%= render(cart.line_items) %>
+
+<ul class="h5">
+  <strong>Total: <%= number_to_currency(cart.total_price) %>
+</ul>
