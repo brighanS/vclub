@@ -1,24 +1,64 @@
-<h1 class="display-1">Select your movies:</h1>
-<table>
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Movie</th>
-      <th socpe="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr scope="row">
-        <td>
-            <%= movie.name %>
-            <img src="<%= movie.image_url %>" class="img-fluid" alt="Responsive image">
-            <%= movie.price %>
-        </td>
-        <td>
-          <button type="button" class="btn btn-outline-primary"><%= button_to 'Add Cart', line_items_path(movie_id: movie)%></button>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class="container ">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h1 class="display-3 text-center">Select your movies:</h1>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6  mx-auto">
+      <div class="row">
+        <div id="cart_div" class="col-md mx-auto">
+          <% if @cart.total_price === 0 %>
+          <div class="">
+            <img class="img-fluid mx-auto d-block" src="https://www.chocogrid.com/img/images/cart-empty.jpg" alt="">
+          </div>
+          <% else %>
+          <div class="">
+            <div class="">
+              <% if @cart %>
+                <%= render @cart %>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-12 col-md-4 mx-auto">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="row">Movie</th>
+              <th scope="row">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @movies.each do |movie| %>
+              <tr scope="row">
+                <td>
+                    <%= movie.name %><br>
+                    <img src="<%= movie.image_url %>" class="img-fluid" alt="Responsive image"><br>
+                    <%= number_to_currency(movie.price) %>
+                </td>
+                <td class="align-middle">
+                  <% if user_signed_in? %>
+                    <%= button_to 'Add to Cart', {:controller => line_items_path, :movie_id => movie}, :class => "btn btn-outline-primary ", remote: true %>
+                  <% else %>
+                  <p class="text-warning">You must be logged in </p>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+
+
 <%= link_to 'Back', movies_path %>

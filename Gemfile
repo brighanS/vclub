@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+#responders
+gem 'responders', '~> 2.0'
+#ruby VERSION
 ruby '2.3.1'
 #Devise
 gem 'devise', git: 'https://github.com/plataformatec/devise'

@@ -1,7 +1,14 @@
-<h1 class="h4">Your cart:</h1>
+<div class="bg-secondary rounded text-white">
+  <div class="col-12">
+    <h1 class="h4">Your cart:</h1>
 
-<%= render(cart.line_items) %>
+    <%= render(cart.line_items) %>
 
-<ul class="h5">
-  <strong>Total: <%= number_to_currency(cart.total_price) %>
-</ul>
+    <ul class="h5">
+      <div class="">
+        <strong>Total: <%= number_to_currency(cart.total_price) %>
+      </div>
+    </ul>
+    <%= link_to 'checkout', "payment" %>
+  </div>
+</div>

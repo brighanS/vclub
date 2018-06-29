@@ -26,12 +26,14 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
+
     movie = Movie.find(params[:movie_id])
     @line_item = @cart.add_movie(movie)
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+        format.html { redirect_to :controller => "movies", :action => 'make_a_rent' }
+        format.js {}
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }

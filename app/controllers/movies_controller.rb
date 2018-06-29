@@ -1,7 +1,9 @@
 class MoviesController < ApplicationController
   include CurrentCart
+  before_action :authenticate_user!, only: [:index, :home, :make_a_rent]
   before_action :set_cart
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
+
 
   # GET /movies
   # GET /movies.json
@@ -29,8 +31,7 @@ class MoviesController < ApplicationController
   # POST /movies
   # POST /movies.json
   def create
-    @movie = Movie.new(movie_params)
-
+      @movie = Movie.new(movie_params)
     respond_to do |format|
       if @movie.save
         format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
@@ -80,6 +81,4 @@ class MoviesController < ApplicationController
     def movie_params
       params.require(:movie).permit(:name, :genre, :image_url, :price, :duration)
     end
-
-
 end

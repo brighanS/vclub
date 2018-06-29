@@ -15,16 +15,14 @@
     <nav class="nav navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
       <a class="navbar-brand">
         <% if user_signed_in? %>
-        <p style='color:#FFFFFF'>Logged as: <%= current_user.email %>
-        <div id="cart" class="">
-          <%= render @cart %>
-        </div>
+        <p class="col-8" style='color:#FFFFFF'>Logged as: <%= current_user.email %>
         <a class="nav-link active"><%= link_to 'Log Out', destroy_user_session_path, method: :delete ,style: 'color:#FFFFFF;'%></a>
         <% else %>
         <a class="nav-link active"> <%= link_to 'Log In', new_user_session_path,style: 'color:#FFFFFF;' %></a>
         <a class="nav-link active"> <%= link_to 'Sign Up!', new_user_registration_path, style: 'color:#FFFFFF;' %></a>
         <% end %>
       </a>
+      <a href="/index">home</a>
     </nav>
     <!-- <p class="alert"><%= alert %></p> -->
     <%= yield %>
