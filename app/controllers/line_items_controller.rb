@@ -9,6 +9,10 @@ class LineItemsController < ApplicationController
     @line_items = LineItem.all
   end
 
+  def message
+    
+  end
+
   # GET /line_items/1
   # GET /line_items/1.json
   def show

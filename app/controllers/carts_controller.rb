@@ -4,10 +4,6 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
 
-  def hello
-    puts "hi"
-  end
-
   def index
     @carts = Cart.all
   end

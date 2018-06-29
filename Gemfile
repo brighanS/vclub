@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+#popperJS
+gem 'popper_js', '~> 1.12.9'
 #responders
 gem 'responders', '~> 2.0'
 #ruby VERSION

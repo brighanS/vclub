@@ -6,9 +6,10 @@
 
     <ul class="h5">
       <div class="">
-        <strong>Total: <%= number_to_currency(cart.total_price) %>
+        <strong>Total: <%= number_to_currency(cart.total_price) %><br>
       </div>
     </ul>
-    <%= link_to 'checkout', "payment" %>
   </div>
+  <%= button_to 'checkout', payments_url,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal_window', class: 'btn btn-outline-success btn-lg btn-block'}  %>
 </div>
+<br>
