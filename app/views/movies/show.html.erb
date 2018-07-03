@@ -5,33 +5,32 @@
         <div class="col">
         </div>
       </div>
-
       <div class="row">
         <div class="col">
-          <p>
-            <strong>Name:</strong>
-            <%= @movie.name %>
-          </p>
+          <br>
+          <table class="table table-bordered">
+            <tr>
+              <td><strong>Name:</strong></td>
+              <td><%= @movie.name %></td>
+            </tr>
+            <tr>
+              <td><strong>Genre:</strong></td>
+              <td><%= @movie.genre %></td>
+            </tr>
+            <tr>
+              <td><strong>Image url:</strong></td>
+              <td><a href="<%= @movie.image_url %>">Click to open</a></td>
+            </tr>
+            <tr>
+              <td><strong>Price:</strong></td>
+              <td><%= @movie.price %></td>
+            </tr>
+            <tr>
+              <td><strong>Duration:</strong></td>
+              <td><%= @movie.duration %> mins</td>
+            </tr>
+          </table>
 
-          <p>
-            <strong>Genre:</strong>
-            <%= @movie.genre %>
-          </p>
-
-          <p>
-            <strong>Image url:</strong>
-            <a href="<%= @movie.image_url %>">Click to open</a>
-          </p>
-
-          <p>
-            <strong>Price:</strong>
-            <%= @movie.price %>
-          </p>
-
-          <p>
-            <strong>Duration:</strong>
-            <%= @movie.duration %> mins
-          </p>
 
           <!-- <%= link_to 'Edit', edit_movie_path(@movie) %> | -->
           <%= link_to 'Back', movies_path %>

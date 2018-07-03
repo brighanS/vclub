@@ -24,14 +24,21 @@
     <nav class="nav navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
       <a class="navbar-brand">
         <% if user_signed_in? %>
-        <p class="col-8" style='color:#FFFFFF'>Logged as: <%= current_user.email %>
-        <a class="nav-link active"><%= link_to 'Log Out', destroy_user_session_path, method: :delete ,style: 'color:#FFFFFF;'%></a>
-        <% else %>
-        <a class="nav-link active"> <%= link_to 'Log In', new_user_session_path,style: 'color:#FFFFFF;' %></a>
-        <a class="nav-link active"> <%= link_to 'Sign Up!', new_user_registration_path, style: 'color:#FFFFFF;' %></a>
-        <% end %>
+        <div class="row">
+          <div class="col">
+            <span class="col-8" style='color:#FFFFFF'>Welcome: </span> <span style='color:#FECEAB '><%= current_user.email %></span>
+            <span><a style='color:#F8B' href="/index">HOME</a></span>
+            <span class="col-8" style='color:#FFFFFF'><%= link_to 'Log Out', destroy_user_session_path, method: :delete ,style: 'color:#FFFFFF;'%></span>
+          </div>
+          <div class="col">
+            <% else %>
+            <a class="nav-link active"> <%= link_to 'Log In', new_user_session_path,style: 'color:#FFFFFF;' %></a>
+            <a class="nav-link active"> <%= link_to 'Sign Up!', new_user_registration_path, style: 'color:#FFFFFF;' %></a>
+            <% end %>
+          </div>
+
+        </div>
       </a>
-      <a href="/index">home</a>
     </nav>
     <!-- <p class="alert"><%= alert %></p> -->
     <%= yield %>
