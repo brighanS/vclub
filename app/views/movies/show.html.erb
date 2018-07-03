@@ -1,29 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xm mx-auto">
+      <div class="row">
+        <div class="col">
+        </div>
+      </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @movie.name %>
-</p>
+      <div class="row">
+        <div class="col">
+          <p>
+            <strong>Name:</strong>
+            <%= @movie.name %>
+          </p>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @movie.genre %>
-</p>
+          <p>
+            <strong>Genre:</strong>
+            <%= @movie.genre %>
+          </p>
 
-<p>
-  <strong>Image url:</strong>
-  <a href="<%= @movie.image_url %>">Click to open</a>
-</p>
+          <p>
+            <strong>Image url:</strong>
+            <a href="<%= @movie.image_url %>">Click to open</a>
+          </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @movie.price %>
-</p>
+          <p>
+            <strong>Price:</strong>
+            <%= @movie.price %>
+          </p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @movie.duration %> mins
-</p>
+          <p>
+            <strong>Duration:</strong>
+            <%= @movie.duration %> mins
+          </p>
 
-<!-- <%= link_to 'Edit', edit_movie_path(@movie) %> | -->
-<%= link_to 'Back', movies_path %>
+          <!-- <%= link_to 'Edit', edit_movie_path(@movie) %> | -->
+          <%= link_to 'Back', movies_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
