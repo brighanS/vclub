@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   include CurrentCart
 
-  before_action :set_user, only: [:set_cart]
+  # before_action :set_user, only: [:set_cart]
 
   before_action :authenticate_user!, only: [:index, :home, :make_a_rent]
   before_action :set_cart
