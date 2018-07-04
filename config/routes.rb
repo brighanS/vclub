@@ -8,9 +8,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get 'rent_a_movie', to: 'movies#make_a_rent'
   get '*path', to: 'movies#index'
   root 'movies#index'
-  get 'rent_a_movie', to: 'movies#make_a_rent'
+
   get 'index', to: 'movies#index'
   get 'users', to: 'movies#index'
 
