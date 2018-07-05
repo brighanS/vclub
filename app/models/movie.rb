@@ -10,7 +10,7 @@
 #  duration   :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
+# genre: 'genre',image_url: 'image_url', price: 100, duration: 60
 
 class Movie < ApplicationRecord
 
