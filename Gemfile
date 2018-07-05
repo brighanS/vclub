@@ -58,6 +58,10 @@ group :development, :test do
    gem 'rspec-rails', '~> 3.7'
    #Annotate to display the model schema
    gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
+   #shoulda-matchers
+   gem 'shoulda-matchers','~> 3.1'
+   #rails-controller-testing
+   gem 'rails-controller-testing'
 end
 
 group :production do
