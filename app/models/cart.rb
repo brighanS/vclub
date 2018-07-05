@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: carts
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  usrid      :integer
+#  user_id    :integer          default(1)
+#
+
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
 
