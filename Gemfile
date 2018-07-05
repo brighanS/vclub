@@ -56,6 +56,8 @@ group :development, :test do
   gem 'sqlite3'
   #Rspec for Rails5+
    gem 'rspec-rails', '~> 3.7'
+   #Annotate to display the model schema
+   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
 end
 
 group :production do
