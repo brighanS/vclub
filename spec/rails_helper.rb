@@ -60,7 +60,7 @@ Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     # Choose a test framework:
     with.test_framework :rspec
-    
+
     # Choose one or more libraries:
     with.library :active_record
     with.library :active_model
@@ -68,4 +68,10 @@ Shoulda::Matchers.configure do |config|
     # Or, choose the following (which implies all of the above):
     with.library :rails
   end
+end
+RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, type: :controller
+end
+RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
 end
