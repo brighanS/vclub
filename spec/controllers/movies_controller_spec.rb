@@ -5,17 +5,16 @@ RSpec.describe MoviesController, type: :controller do
 
   let(:user){FactoryBot.create :user}
 
-  context 'when logged in the GET [index]' do
+  context 'when logged_in the GET [index]' do
     it 'returns http code 200 and index template' do
       sign_in user
       get :index
       expect(response).to have_http_status(200)
       expect(response).to render_template(:index)
-      #expect('<h1 class="display-1">Movies</h1>').to have_tag('h1', :with => { :class => 'display-1' })
     end
   end
 
-  context 'when logged in the GET  [show]' do
+  context 'when logged_in the GET  [show]' do
     it 'returns http code 200 and show template' do
       sign_in user
       movie = Movie.create(name: 'name1',genre: 'genre',image_url: 'image_url.jpg', price: 100, duration: 60)
@@ -25,7 +24,7 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
-  context 'when logged in the GET [new]' do
+  context 'when logged_in the GET [new]' do
     it 'returns http code 200 and new template' do
       sign_in user
       get :new
@@ -34,17 +33,16 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
-  context 'when logged in [create]' do
+  context 'when logged_in, the [create]' do
     it 'stores movies into Data Base' do
       sign_in user
-      movie = Movie.create(name: 'name3',genre: 'genre',image_url: 'image_url.jpg', price: 100, duration: 60)
-      post :create, params: {name: movie.to_param,genre: movie.to_param,image_url: movie.to_param,price: movie.to_param,duration: movie.to_param}
-      expect(response).to have_http_status(200)
-      expect(response).to render_template(:show)
+      post_params = attributes_for(:movie)
+      post :create, params: {movie: post_params}
+      expect(response).to redirect_to :action => :show, :id => assigns(:movie).id
     end
   end
 
-  context 'when logged in the GET [edit]' do
+  context 'when logged_in the GET [edit]' do
     it 'returns http code 200 and edit template' do
       sign_in user
       movie = Movie.create(name: 'name2',genre: 'genre',image_url: 'image_url.jpg', price: 100, duration: 60)
@@ -54,8 +52,19 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
+####CURRENT
+  # context 'when logged_in, the [update]' do
+  #   it 'changes movies from Data Base' do
+  #     sign_in user
+  #     @movie = attributes_for(:movie)
+  #     @movie_id = @movie.id
+  #     byebug
+  #     put :update, {:id => movie_id}, params: {movie: movie}
+  #   end
+  # end
+
   #NEGATIVE SCENARIOS
-  context 'when NOT logged in the GET [new]' do
+  context 'when NOT logged_in the GET [new]' do
     it 'returns http code 302 and redirected to sign_in' do
       get :new
       expect(response).to have_http_status(302)
@@ -63,7 +72,7 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
-  context 'when NOT logged in the GET [index]' do
+  context 'when NOT logged_in the GET [index]' do
     it 'returns http code 302 and redirected to sign_in' do
       get :index
       expect(response).to have_http_status(302)
@@ -71,7 +80,7 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
-  context 'when NOT logged in the GET  [show]' do
+  context 'when NOT logged_in the GET  [show]' do
     it 'returns http code 302 and redirected to sign_in' do
       movie = Movie.create(name: 'name1',genre: 'genre',image_url: 'image_url.jpg', price: 100, duration: 60)
       get :show, params: {id: movie.to_param}
