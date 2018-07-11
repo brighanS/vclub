@@ -14,3 +14,16 @@ FactoryBot.define do
     duration "60"
   end
 end
+
+FactoryBot.define do
+  factory :line_item do
+    movie_id {FactoryBot.create(:movie)}
+    cart_id {FactoryBot.create(:cart)}
+    quantity 1
+  end
+end
+
+FactoryBot.define do
+  factory :cart do
+  end
+end
