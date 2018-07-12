@@ -1,0 +1,10 @@
+$("#modal_window").find(".modal-content").html("<%= j (render 'payments') %>");
+$("#modal_window").modal();
+$(window).on('shown.bs.modal', function() {
+    $('#modal_window').modal('show',function(){});
+    var string = $.trim($('#msj').text());
+    var y = "Payment Succesful";
+    if (string == y) {
+      setTimeout(function(){ location.href="/"}, 2000 );
+    }
+});
