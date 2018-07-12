@@ -30,7 +30,6 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    byebug
     movie = Movie.find(params[:movie_id])
     @line_item = @cart.add_movie(movie)
 
