@@ -9,8 +9,4 @@ module CurrentCart
     # session[:cart_id] = @cart.id
     # @cart.user_id = current_user.id
   end
-
-  def set_user
-    @user = current_user.id
-  end
 end
