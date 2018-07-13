@@ -29,7 +29,7 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(payment_params)
-    r= Random.new
+    r = Random.new
     n = r.rand(1...10)
     if n < 6
       @message = "Payment Succesful"

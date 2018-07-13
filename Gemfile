@@ -62,6 +62,13 @@ group :development, :test do
    gem 'shoulda-matchers','~> 3.1'
    #rails-controller-testing
    gem 'rails-controller-testing'
+   #Factory_girls_FACTORY_BOT
+   gem 'factory_bot_rails'
+   #Faker Internet
+   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+   #RSpecHtmlMatchers
+   gem 'rspec-html-matchers'
+  
 end
 
 group :production do

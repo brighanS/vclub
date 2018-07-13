@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
@@ -60,7 +61,7 @@ Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     # Choose a test framework:
     with.test_framework :rspec
-    
+
     # Choose one or more libraries:
     with.library :active_record
     with.library :active_model
@@ -68,4 +69,13 @@ Shoulda::Matchers.configure do |config|
     # Or, choose the following (which implies all of the above):
     with.library :rails
   end
+end
+
+#Module manually added to allow sing_in and sign_out
+#URL: https://makandracards.com/makandra/37161-rspec-devise-how-to-sign-in-users-in-request-specs
+RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers
+  config.include Warden::Test::Helpers
+  # config.include Devise::TestHelpers
+  config.include FactoryBot::Syntax::Methods
 end

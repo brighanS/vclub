@@ -10,6 +10,6 @@
       </div>
     </ul>
   </div>
-  <%= button_to 'checkout', payments_url,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal_window', class: 'btn btn-outline-success btn-lg btn-block'}  %>
+  <%= button_to 'checkout', @cart, {method: :delete,:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal_window', class: "btn btn-outline-success btn-block"}  %>
 </div>
 <br>
