@@ -52,16 +52,19 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
-####CURRENT
-  # context 'when logged_in, the [update]' do
-  #   it 'changes movies from Data Base' do
-  #     sign_in user
-  #     @movie = attributes_for(:movie)
-  #     @movie_id = @movie.id
-  #     byebug
-  #     put :update, {:id => movie_id}, params: {movie: movie}
-  #   end
-  # end
+##Update
+  context 'when logged_in, the [update]' do
+    it 'changes movies from Data Base' do
+      sign_in user
+      @movie = create(:movie)
+      byebug
+      put :update, params: {id: @movie.id, movie: { name: "brighan"}}
+      @movie.reload
+       byebug
+       expect(response).to have_http_status(302)
+       expect(response).to redirect_to(@movie)
+    end
+  end
 
   #NEGATIVE SCENARIOS
   context 'when NOT logged_in the GET [new]' do
