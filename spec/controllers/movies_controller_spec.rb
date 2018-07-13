@@ -57,12 +57,20 @@ RSpec.describe MoviesController, type: :controller do
     it 'changes movies from Data Base' do
       sign_in user
       @movie = create(:movie)
-      byebug
       put :update, params: {id: @movie.id, movie: { name: "brighan"}}
       @movie.reload
-       byebug
        expect(response).to have_http_status(302)
        expect(response).to redirect_to(@movie)
+    end
+  end
+
+  ##destroy
+  context "When logged_in the [destroy]" do
+    it 'deletes a movie from DB' do
+      sign_in user
+      @movie = create(:movie)
+      delete :destroy, params: {id: @movie.id}
+      expect(Movie.count).to eq(0)
     end
   end
 
