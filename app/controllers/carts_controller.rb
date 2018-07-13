@@ -56,6 +56,7 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
+    
     r = Random.new
     n = r.rand(1...10)
     if n < 6
