@@ -70,9 +70,12 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+#Module manually added to allow sing_in and sign_out
+#URL: https://makandracards.com/makandra/37161-rspec-devise-how-to-sign-in-users-in-request-specs
 RSpec.configure do |config|
-  config.include Devise::Test::ControllerHelpers, type: :controller
-end
-RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers
+  config.include Warden::Test::Helpers
+  # config.include Devise::TestHelpers
   config.include FactoryBot::Syntax::Methods
 end

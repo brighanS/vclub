@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   get 'index', to: 'movies#index'
   get 'users', to: 'movies#index'
 
+  resources :movies do
+  collection do
+   patch 'update'
+  end
+end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

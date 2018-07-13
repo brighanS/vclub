@@ -10,7 +10,7 @@ class LineItemsController < ApplicationController
   end
 
   def message
-    
+
   end
 
   # GET /line_items/1
@@ -30,9 +30,9 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-
     movie = Movie.find(params[:movie_id])
     @line_item = @cart.add_movie(movie)
+
 
     respond_to do |format|
       if @line_item.save
