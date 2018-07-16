@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'capybara'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -76,6 +77,5 @@ end
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers
   config.include Warden::Test::Helpers
-  # config.include Devise::TestHelpers
   config.include FactoryBot::Syntax::Methods
 end
