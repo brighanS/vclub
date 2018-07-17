@@ -1,5 +1,75 @@
 require 'rails_helper'
 
 RSpec.feature "ForgotPasswordPages", type: :feature do
-  pending "add some scenarios (or delete) #{__FILE__}"
+  describe "Forgot Password page behavior", :type => :feature do
+
+    let(:user){build :user}
+
+    context 'when forgot_password page is presented' do
+      it "displays all its content" do
+        visit '/users/password/new'
+          expect(page).to have_content 'Forgot your password?'
+        within(".nav") do
+          expect(page).to have_selector(:link_or_button, 'Log In')
+          expect(page).to have_selector(:link_or_button, 'Sign Up!')
+        end
+        within('#forgot_password') do
+          expect(page).to have_content 'Email'
+          expect(page).to have_selector(:link_or_button, 'Send me reset password instructions')
+        end
+        expect(page).to have_selector(:link_or_button, 'Log in')
+        expect(page).to have_selector(:link_or_button, 'Sign up')
+      end
+    end
+
+    context 'when forgot_password button is clicked with empty form' do
+      it "throws an error" do
+        visit '/users/password/new'
+        within("#forgot_password") do
+          click_button('Send me reset password instructions')
+        end
+        within("#error_explanation") do
+            expect(page).to have_content '1 error prohibited this user from being saved:'
+        end
+      end
+    end
+    #
+
+    context 'when unregistered email is provided' do
+      it "throws and error" do
+        visit '/users/password/new'
+        within("#forgot_password") do
+          fill_in 'user_email', with: 'unregistered@email.com'
+          click_button('Send me reset password instructions')
+        end
+        within("#error_explanation") do
+            expect(page).to have_content '1 error prohibited this user from being saved:'
+            expect(page).to have_content 'Email not found'
+        end
+      end
+    end
+
+    context 'when valid email is provided' do
+      it "sends instructions email" do
+        visit '/users/password/new'
+        within("#forgot_password") do
+          fill_in 'user_email', with: 'danborer@jakubowskijones.name'
+          click_button('Send me reset password instructions')
+        end
+          expect(page).to have_content 'You will receive an email with instructions on how to reset your password in a few minutes.'
+          expect(page).to have_content 'Log in'
+      end
+    end
+    #
+    # context 'when the Log in link is clicked' do
+    #   it "displays the login form" do
+    #     visit '/users/sign_up'
+    #     within("#sign_up_form") do
+    #       click_link 'Log in'
+    #     end
+    #     expect(page).to have_content 'Log in'
+    #   end
+    # end
+
+  end
 end
