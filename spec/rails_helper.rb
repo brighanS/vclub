@@ -1,6 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'capybara/rspec'
 require 'spec_helper'
-require 'capybara'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -75,7 +75,8 @@ end
 #Module manually added to allow sing_in and sign_out
 #URL: https://makandracards.com/makandra/37161-rspec-devise-how-to-sign-in-users-in-request-specs
 RSpec.configure do |config|
-  config.include Devise::Test::ControllerHelpers
+  config.include Devise::Test::IntegrationHelpers, type: :controller
   config.include Warden::Test::Helpers
   config.include FactoryBot::Syntax::Methods
 end
+#:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
