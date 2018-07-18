@@ -59,5 +59,6 @@ RSpec.feature "ForgotPasswordPages", type: :feature do
         expect(page).to have_content 'Log in'
       end
     end
+
   end
 end
