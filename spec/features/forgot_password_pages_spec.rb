@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.feature "ForgotPasswordPages", type: :feature do
   describe "Forgot Password page behavior", :type => :feature do
 
-    let(:user){build :user}
-
     context 'when forgot_password page is presented' do
       it "displays all its content" do
         visit '/users/password/new'
@@ -51,25 +49,15 @@ RSpec.feature "ForgotPasswordPages", type: :feature do
 
     context 'when valid email is provided' do
       it "sends instructions email" do
+        user = User.last
         visit '/users/password/new'
         within("#forgot_password") do
-          fill_in 'user_email', with: 'danborer@jakubowskijones.name'
+          fill_in 'user_email', with: user.email
           click_button('Send me reset password instructions')
         end
-          expect(page).to have_content 'You will receive an email with instructions on how to reset your password in a few minutes.'
-          expect(page).to have_content 'Log in'
+        expect(page).to have_content 'You will receive an email with instructions on how to reset your password in a few minutes.'
+        expect(page).to have_content 'Log in'
       end
     end
-    #
-    # context 'when the Log in link is clicked' do
-    #   it "displays the login form" do
-    #     visit '/users/sign_up'
-    #     within("#sign_up_form") do
-    #       click_link 'Log in'
-    #     end
-    #     expect(page).to have_content 'Log in'
-    #   end
-    # end
-
   end
 end

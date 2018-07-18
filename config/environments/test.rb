@@ -43,4 +43,11 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  #::::::::::::::::::::::::::
+  #setting mailer host, this is to avoid:
+  # ActionView::Template::Error:
+  # Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true
+
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
 end
