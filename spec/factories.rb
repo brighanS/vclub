@@ -7,7 +7,7 @@ end
 
 FactoryBot.define do
   factory :movie do
-    name {Faker::Artist.name}
+    name {Faker::Friends.character}
     genre "Action"
     image_url "https://kbob.github.io/images/sample-1.jpg"
     price "199.00"

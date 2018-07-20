@@ -16,7 +16,7 @@ RSpec.feature "DeleteMovies", type: :feature do
     end
 
     context 'when Delete is clicked' do
-      it "displays the alert message confirmation" do
+      it "deletes the selected movie" do
         login_as user
         visit '/'
         click_link('Delete')
