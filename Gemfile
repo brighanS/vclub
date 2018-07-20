@@ -79,6 +79,8 @@ group :development, :test do
    gem 'capybara-screenshot', :group => :test
    #Capybara Forms
    gem 'formulaic', '0.4.0' ,group: :test
+   #gem
+   gem 'capybara-webkit'
 
 end
 
