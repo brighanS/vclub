@@ -4,7 +4,9 @@ SimpleCov.start
 require 'capybara/rspec'
 require 'spec_helper'
 
+
 ENV['RAILS_ENV'] ||= 'test'
+Capybara.default_driver = :webkit
 require 'capybara-screenshot/rspec'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
@@ -81,5 +83,6 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :controller
   config.include Warden::Test::Helpers
   config.include FactoryBot::Syntax::Methods
+
 end
 #:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

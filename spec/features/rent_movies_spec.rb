@@ -31,8 +31,8 @@ RSpec.feature "RentMovies", type: :feature do
         login_as user
         visit '/rent_a_movie'
         click_button('Add to Cart')
-        save_and_open_page
-        expect(page).to have_content('Your cart:')
+        expect(page).to have_css('#cart_div', text: movie.name)
+        print page.html
       end
     end
 
