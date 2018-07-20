@@ -601,6 +601,25 @@
         1,
         null
       ],
+      "/home/brighan/eval/vclub/spec/support/capybara.rb": [
+        1,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/home/brighan/eval/vclub/app/controllers/movies_controller.rb": [
         1,
         1,
@@ -638,6 +657,7 @@
         null,
         null,
         1,
+        0,
         0,
         0,
         0,
@@ -783,6 +803,6 @@
         null
       ]
     },
-    "timestamp": 1531949497
+    "timestamp": 1532097990
   }
 }

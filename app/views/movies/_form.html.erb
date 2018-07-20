@@ -16,7 +16,7 @@
                 </ul>
               </div>
             <% end %>
-          <form>
+          <form id="formMovie">
             <div class="form-group">
               <div class="field">
                 <%= form.label :name %>
@@ -44,7 +44,7 @@
               </div>
             </div>
             <div class="actions">
-              <%= form.submit "Send", class:"btn btn-outline-primary btn-block" %>
+              <%= form.submit @path, id:"btn1", class:"btn btn-outline-primary btn-block" %>
             </div>
           </form>
 

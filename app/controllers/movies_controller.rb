@@ -34,6 +34,7 @@ class MoviesController < ApplicationController
   # POST /movies
   # POST /movies.json
   def create
+    byebug
       @movie = Movie.new(movie_params)
     respond_to do |format|
       if @movie.save

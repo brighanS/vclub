@@ -1,10 +1,11 @@
 require 'rails_helper'
+require 'support/capybara'
 
 RSpec.feature "CreateMovies", type: :feature do
   describe "Movie creation process", :type => :feature do
 
     let(:user){create :user}
-    let(:movie){build :movie}
+    let(:movie){create :movie}
 
     context 'when logged_in movies page is presented' do
       it "displays new_movie button" do
@@ -27,31 +28,34 @@ RSpec.feature "CreateMovies", type: :feature do
           expect(page).to have_content 'Price'
           expect(page).to have_content 'Duration'
         end
+          expect(page).to have_selector(:link_or_button, 'Create Movie')
       end
     end
 
     context 'when valid movie data is provided' do
       it "saves movie" do
         login_as user
+        # visit '/movies/new'
+        # fill_form(:movie,{
+        #   movie_name: movie.name,
+        #   movie_genre: movie.genre,
+        #   movie_image_url: movie.image_url,
+        #   movie_price: movie.price,
+        #   movie_duration: movie.duration
+        #   })
+        #   click_on submit(:movie)
         visit '/movies/new'
-        # within('.form-group') do
-          fill_in 'movie_name', with: movie.name
-          fill_in 'movie_genre', with: movie.genre
+          fill_in 'movie[name]', with: "los increibles"
+          fill_in 'movie[genre]', with: movie.genre
           fill_in 'movie_image_url', with: movie.image_url
           fill_in 'movie_price', with: movie.price
           fill_in 'movie_duration', with: movie.duration
-          # fill_in 'movie_name', with: "movie"
-          # fill_in 'movie_genre', with: "comedy"
-          # fill_in 'movie_image_url', with: "image.jpg"
-          # fill_in 'movie_price', with: "60.0"
-          # fill_in 'movie_duration', with: "120"
-        # end
-        within('.actions') do
-          click_button 'Send'
-        end
-        #expect(page).to have_content movie.name
-        expect(page).to have_content 'Movie was successfully created.'
+          save_and_open_page
+        #click_link 'input[name="commit"]'
 
+        click_button("Create Movie")
+        expect(page).to have_content 'Movie was successfully created.'
+        #expect(page).to have_selector(:link_or_button, 'Send')
       end
     end
 

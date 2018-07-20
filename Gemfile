@@ -69,12 +69,16 @@ group :development, :test do
    #RSpecHtmlMatchers
    gem 'rspec-html-matchers'
    # Adds support for Capybara system testing and selenium driver
-   gem 'capybara'
+   gem 'capybara', '3.3.1'
    gem 'selenium-webdriver'
    # Easy installation and use of chromedriver to run system tests with Chrome
    gem 'chromedriver-helper'
    #simplecov to validate test coverage
    gem 'simplecov', require: false, group: :test
+   #Capybara screenshot
+   gem 'capybara-screenshot', :group => :test
+   #Capybara Forms
+   gem 'formulaic', '0.4.0' ,group: :test
 
 end
 

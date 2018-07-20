@@ -53,9 +53,10 @@ RSpec.feature "ForgotPasswordPages", type: :feature do
         visit '/users/password/new'
         within("#forgot_password") do
           fill_in 'user_email', with: user.email
+          save_and_open_page
           click_button('Send me reset password instructions')
         end
-        expect(page).to have_content 'You will receive an email with instructions on how to reset your password in a few minutes.'
+        expect(page).to have_content 'sadasdasdasdYou will receive an email with instructions on how to reset your password in a few minutes.'
         expect(page).to have_content 'Log in'
       end
     end
