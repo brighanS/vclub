@@ -56,9 +56,7 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    r = Random.new
-    n = r.rand(1...10)
-    if n < 6
+    if Cart.payment_success?
       @message = "Payment Succesful"
         @cart.destroy if @cart.id == current_user.id
         @cart = nil
@@ -72,6 +70,7 @@ class CartsController < ApplicationController
         end
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

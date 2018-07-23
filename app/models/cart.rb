@@ -24,9 +24,12 @@ class Cart < ApplicationRecord
     end
     current_item
   end
-def total_price
-  line_items.to_a.sum {|item| item.total_price}
-end
+  def total_price
+    line_items.to_a.sum {|item| item.total_price}
+  end
 
+  def self.payment_success?
+    [true, false].sample
+  end
 
 end
